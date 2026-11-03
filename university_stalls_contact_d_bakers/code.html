@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>D Bakers - Artisanal Home Bakery</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-secondary-fixed-variant": "#802348", "surface": "#fbf9f5", "outline": "#82746e", "on-primary": "#ffffff", "on-error": "#ffffff", "surface-container": "#efeeea", "secondary-fixed-dim": "#ffb1c7", "on-surface": "#1b1c1a", "secondary-container": "#fc86ac", "background": "#fbf9f5", "on-secondary-fixed": "#3f001c", "inverse-surface": "#30312e", "tertiary": "#250f00", "surface-bright": "#fbf9f5", "surface-container-highest": "#e4e2de", "secondary-fixed": "#ffd9e2", "on-primary-fixed": "#2d1608", "on-tertiary": "#ffffff", "on-error-container": "#93000a", "on-secondary-container": "#761b41", "error-container": "#ffdad6", "on-tertiary-fixed": "#2f1500", "on-surface-variant": "#50443f", "tertiary-fixed": "#ffdcc3", "surface-container-low": "#f5f3ef", "on-primary-fixed-variant": "#5e402f", "outline-variant": "#d4c3bc", "primary": "#250f03", "error": "#ba1a1a", "inverse-primary": "#e9bda7", "surface-variant": "#e4e2de", "inverse-on-surface": "#f2f0ed", "on-tertiary-fixed-variant": "#6e3900", "primary-fixed-dim": "#e9bda7", "secondary": "#9e3b60", "on-tertiary-container": "#d97706", "on-background": "#1b1c1a", "surface-container-high": "#eae8e4", "on-secondary": "#ffffff", "surface-tint": "#795745", "primary-container": "#3d2314", "primary-fixed": "#ffdbca", "tertiary-container": "#432000", "surface-dim": "#dbdad6", "surface-container-lowest": "#ffffff", "on-primary-container": "#af8874", "tertiary-fixed-dim": "#ffb77d" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "3rem", "space-lg": "1.75rem", "space-sm": "0.5rem", "margin": "3rem", "space-md": "1rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "margin-mobile": "1.25rem", "space-xs": "0.25rem" }, fontFamily: { "display-lg-mobile": ["Playfair Display"], "headline-sm": ["Playfair Display"], "display-lg": ["Playfair Display"], "headline-lg": ["Playfair Display"], "body-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Playfair Display"], "body-lg": ["Plus Jakarta Sans"], "headline-md": ["Playfair Display"] }, fontSize: { "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["22px", { "lineHeight": "28px", "fontWeight": "500" }], "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "500" }] } } } }</script><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior-y: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_4px_20px_-2px_rgba(61,35,20,0.05)] pt-safe"><div class="h-20 px-margin-mobile flex items-center justify-between gap-space-xs"><div class="flex items-center gap-2.5 min-w-0"><img alt="D Bakers Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyecIqAsVO0S3Fy1s9H7gg3Thd7LAC75QQZE-8S8MmCORQ4vXugaY8yR5-3BGQWrF7JhYTtXy-r9l-zB2MlJZamCI6ELiTvJZ3sb9EGcT0xF76kD3goqDrbnz03BbSLha7AKUhbabEstHIaEJWy9GR7GEYH5B1gX6IxtJKk-K_RSmOuji-497U-bINik8sTo2t5RDkkUe61g3cv18uYJNF8TICk1x65OBi6aJV2_9y"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm text-primary tracking-tight truncate">D Bakers</span><span class="hidden sm:inline-block font-body-sm text-body-sm text-on-surface-variant font-medium">•</span><span class="hidden sm:inline-block font-body-sm text-body-sm text-on-surface-variant italic truncate">University Stalls</span></div><span class="inline-flex items-center font-label-sm text-label-sm text-on-surface-variant tracking-normal truncate"><span class="text-[12px] mr-0.5 leading-none">📍</span>Model Town, Panipat</span></div></div><div class="flex items-center gap-2 flex-shrink-0"><a aria-label="WhatsApp Quick Order" class="w-11 h-11 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-[0_4px_14px_rgba(229,115,153,0.28)] hover:bg-secondary-container transition-all active:scale-95" href="https://wa.me/919999999999?text=Hi%20D%20Bakers,%20I%20would%20like%20to%20place%20an%20order!"><span class="material-symbols-outlined text-[20px]">chat</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-44 bg-surface"><div class="flex flex-col w-full">
+<!-- Campus Pop-Up Spotlight Hero -->
+<section class="px-margin-mobile pt-3 pb-space-md">
+<div class="relative overflow-hidden rounded-xl bg-primary text-on-primary shadow-xl p-5">
+<div class="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-secondary opacity-30 blur-2xl pointer-events-none"></div>
+<div class="absolute top-2 right-3 pointer-events-none opacity-15 text-primary-fixed">
+<span class="material-symbols-outlined text-[100px] leading-none">cookie</span>
+</div>
+<div class="relative z-10 flex flex-col gap-3">
+<!-- Live Campus Pill -->
+<div class="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-secondary text-on-secondary shadow-sm">
+<span class="w-2 h-2 rounded-full bg-surface-bright animate-ping"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Campus Stall Live</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary-fixed tracking-tight">
+          Catch D Bakers at Your University Campus!
+        </h1>
+<p class="font-body-md text-body-md text-surface-container-low/90 leading-relaxed">
+          From college fests to weekend food carnivals across Haryana &amp; NCR campuses (Geeta University, PIET, Ashoka University, Sonipat &amp; Panipat), we bring fresh warm brownies, cupcakes, and gooey dessert jars straight to your campus courtyard!
+        </p>
+<!-- Upcoming Schedule Ticket -->
+<div class="mt-2 rounded-lg bg-surface-container-lowest/10 backdrop-blur-md p-3.5 flex items-start gap-3 text-surface">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[22px]">event_available</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed">Next Up On Campus</span>
+<p class="font-title-md text-title-md font-semibold text-surface-bright truncate">Tech &amp; Cultural Fest • PIET</p>
+<p class="font-body-sm text-body-sm text-surface-container-low/80">This Friday &amp; Saturday | 10:00 AM – 6:00 PM</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stall Moments & Student Vibe Gallery -->
+<section class="px-margin-mobile py-space-sm">
+<div class="flex items-center justify-between mb-3">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-secondary font-bold tracking-wider">Campus Memories</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Student Vibe &amp; Fresh Bakes</h2>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">local_fire_department</span>
+<span>Fest Favourites</span>
+</div>
+</div>
+<!-- Scrolling Snapshot Carousel -->
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-none snap-x snap-mandatory -mx-margin-mobile px-margin-mobile">
+<!-- Card 1: Warm Brownies Box -->
+<div class="snap-center flex-shrink-0 w-64 rounded-xl bg-surface-container-low shadow-sm overflow-hidden flex flex-col">
+<div class="relative h-44 w-full">
+<img class="w-full h-full object-cover" data-alt="Close up shot of warm handcrafted fudge brownies dusted with powdered sugar inside a rustic kraft bakery box at a bustling outdoor university festival booth in Panipat. Rich chocolate textures, soft natural daylight, warm vanilla and deep cocoa brown tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq_mwFKMPspIo-WIUoGDtszDFfcUtfhwjSftmIi6JQ8o-U7ixJHVL9lhTRLaYdMrxTDTcVnHAdx_rb0BjG4meiBi7Dr6kFzsCReOjZ7v69hTmzCN9-JF8S4pteoDWCY7oc2QBBX-kn3vUDmLVq3hw9Y09Iq6wIWrexTLSGNMH4Z06XPgOahxP5TphqNU0yV-MELKckj8tSGW6115e7Q5ls4K00Rt_9QYygDo--Fkkp"/>
+<span class="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm">
+            Sold 400+ Units
+          </span>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-title-md text-title-md text-primary font-bold">Fudgy Brownie Stacks</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Triple chocolate &amp; walnut crumbles served warm in takeaway boxes.</p>
+</div>
+</div>
+<!-- Card 2: Student Crowd at Fest -->
+<div class="snap-center flex-shrink-0 w-64 rounded-xl bg-surface-container-low shadow-sm overflow-hidden flex flex-col">
+<div class="relative h-44 w-full">
+<img class="w-full h-full object-cover" data-alt="Vibrant college students laughing and crowding around a charming artisanal bakery stall with pastel pink bunting and chalk sign at a North Indian university fest. Golden hour sunshine, genuine youthful joy, delightful food presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuoZliaHgOmV7rNdU6sd6kS0dlFH71RgNbCljnSsdbBEGm7ztetgvATQBqjdng9e2BCZMrRbi83o04xnRbk091hSYhVbE11tYrpnbUYKkAkeihi0wcccpohpg3bcJPjlgxfhXLW7i1Rfum9E4fXAh2X0MWB6kB94P9G-2TUou7QO2aqHl9vFYA1U_yDKVaHoz9OG5c-kciBffK7dWHGdIETm0FvAQHEbqKCwQhVkw1"/>
+<span class="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm">
+            Geeta University Fest
+          </span>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-title-md text-title-md text-primary font-bold">Festival Sweet Craves</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Queue smiles, cake pop giveaways, and freshly whipped cream treats.</p>
+</div>
+</div>
+<!-- Card 3: Dessert Jars & Cupcakes -->
+<div class="snap-center flex-shrink-0 w-64 rounded-xl bg-surface-container-low shadow-sm overflow-hidden flex flex-col">
+<div class="relative h-44 w-full">
+<img class="w-full h-full object-cover" data-alt="Charming glass dessert jars layered with biscoff caramel, red velvet sponge, and Belgian dark chocolate mousse displayed beautifully on a wooden counter with dainty floral touches. Warm cozy boutique bakery presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClOwil1d-62fu1JHevKH2sfy3IGqweaiN_WBz77i2TbfRT4S7yPYslYUg3mTCTm1-O80l6qZhCQerIbLG3RBXb-wSaw82-qqGLxOwFgEdEcJ5PnNrqHXthMP97PuAcI68q2L_KeSprplj3Uj3l9q1mHghCwUQU5A97B36oSGg_LjOhR9weDmb918CzPPwe9Dvjh6SSHZ51OL-rQ4XRad7GKLQi8G5Ym3Uaekp12o65"/>
+<span class="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-primary/80 backdrop-blur-sm text-on-primary font-label-sm text-label-sm">
+            Pocket Friendly
+          </span>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-title-md text-title-md text-primary font-bold">Layered Jar Treats</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mess-free spoon-ready layered jars created especially for campus hangouts.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Student WhatsApp Early Bird Alert Card -->
+<section class="px-margin-mobile py-space-sm">
+<div class="rounded-xl bg-surface-container-lowest shadow-md p-4 flex flex-col gap-3">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary font-semibold leading-snug">Bring D Bakers to Your College!</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Get notified 24 hours before we set up shop on your campus.</p>
+</div>
+</div>
+<form class="flex flex-col gap-2.5" id="campus-alert-form" onsubmit="event.preventDefault(); showSignupToast();">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Select Your Campus</label>
+<div class="relative">
+<select class="w-full h-11 px-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm appearance-none focus:outline-none" id="campus-select">
+<option value="PIET, Panipat">PIET (Panipat Institute of Engg. &amp; Tech)</option>
+<option value="Geeta University, Naultha">Geeta University, Naultha</option>
+<option value="Ashoka University, Sonipat">Ashoka University, Sonipat Campus</option>
+<option value="Arya College, Panipat">Arya College, Panipat</option>
+<option value="IB PG College, Panipat">IB PG College, GT Road</option>
+<option value="SRM University, Sonipat">SRM University, Delhi-NCR Sonipat</option>
+<option value="Other">My College isn't listed (Tell us!)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Your WhatsApp Number</label>
+<div class="flex items-center gap-2">
+<div class="h-11 px-3 rounded-lg bg-surface-container-low flex items-center justify-center font-body-sm text-body-sm text-on-surface font-medium">
+              🇮🇳 +91
+            </div>
+<input class="flex-1 h-11 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant/60 focus:outline-none" id="student-phone" pattern="[0-9]{10}" placeholder="98123 45678" required="" type="tel"/>
+</div>
+</div>
+<button class="w-full h-11 mt-1 rounded-full bg-secondary text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md active:scale-95 transition-all" type="submit">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Notify Me Before Campus Visits</span>
+</button>
+</form>
+<div class="hidden rounded-lg bg-surface-container p-3 flex items-center gap-2 text-primary animate-fade-in" id="signup-success-toast">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span class="font-body-sm text-body-sm">You are on the secret VIP list! We will ping you before our next stall setup.</span>
+</div>
+</div>
+</section>
+<!-- Direct WhatsApp Order Card -->
+<section class="px-margin-mobile py-space-sm">
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-container to-primary text-on-primary p-5 shadow-lg flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider">Fast Direct Kitchen Line</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest/15 px-2 py-0.5 rounded-full text-surface-bright">Model Town Studio</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary-fixed">Order Warm Bakes Today</h2>
+<p class="font-body-md text-body-md text-surface-container-low/90 mt-1">
+          Ordering for birthdays, midnight dorm cravings, or home delivery in Panipat? Chat with our head baker directly on WhatsApp.
+        </p>
+</div>
+<!-- Pre-filled Message Sample -->
+<div class="rounded-lg bg-surface-container-lowest/10 p-3 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-secondary-fixed">Tap below with pre-filled message:</span>
+<p class="font-body-sm text-body-sm italic text-surface-bright">
+          “Hi D Bakers! I would like to place an order for fresh bakes / query custom cake pricing in Panipat.”
+        </p>
+</div>
+<a class="w-full h-12 rounded-full bg-secondary text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform mt-1" href="https://wa.me/919999999999?text=Hi%20D%20Bakers!%20I%20would%20like%20to%20place%20an%20order%20for%20fresh%20bakes%20/%20query%20custom%20cake%20pricing%20in%20Panipat." rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>Chat &amp; Order on WhatsApp (+91 98XXX XXXXX)</span>
+</a>
+<!-- Quick Action Connectors -->
+<div class="grid grid-cols-3 gap-2 pt-2">
+<a class="h-10 rounded-lg bg-surface-container-lowest/15 flex items-center justify-center gap-1.5 text-surface font-label-sm text-label-sm active:bg-surface-container-lowest/25 transition-colors" href="tel:+919999999999">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span>Call Studio</span>
+</a>
+<a class="h-10 rounded-lg bg-surface-container-lowest/15 flex items-center justify-center gap-1.5 text-surface font-label-sm text-label-sm active:bg-surface-container-lowest/25 transition-colors" href="https://instagram.com/dbakers_panipat" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">photo_camera</span>
+<span>Instagram</span>
+</a>
+<a class="h-10 rounded-lg bg-surface-container-lowest/15 flex items-center justify-center gap-1.5 text-surface font-label-sm text-label-sm active:bg-surface-container-lowest/25 transition-colors" href="https://wa.me/919999999999?text=Hi!%20Can%20I%20get%20the%20current%20menu%20PDF?">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span>Menu PDF</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Studio Location & Operating Hours Map Section -->
+<section class="px-margin-mobile py-space-sm">
+<div class="rounded-xl bg-surface-container-low shadow-sm p-4 flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Bakehouse &amp; Counter</span>
+<h3 class="font-title-md text-title-md text-primary font-bold">Kitchen Studio Location</h3>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+</div>
+</div>
+<!-- Static Map Location View -->
+<div class="w-full h-40 bg-cover bg-center rounded-lg shadow-inner relative flex items-end p-2.5 overflow-hidden" data-location="Model Town, Panipat, Haryana 132103" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWeS3b6kK7MhwTHtCoSK3c9cbJmbHwBL4aj7Ypx0cHnkqearg1wpHsQ0FUfRWEzzfustLWXp5D0ULE7qqV_5npK8GPoeTc9INjWSHorT6ewWE4unZhlmJROAaU2flOcJJiPoFfsC9jM8AKyRqk4eXMJf3NIOksm5Bt4Zs3XoeaZNSiVl4R8NBVAHzmRQoRFgiOwfX7Z918vIk_lHmAtS3XcptAubVUwYc-WfliL_2A')">
+<div class="px-3 py-1.5 rounded-md bg-surface/95 backdrop-blur-md shadow text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">storefront</span>
+<span class="font-label-sm text-label-sm font-semibold truncate">Model Town, Panipat - 132103</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 text-on-surface">
+<div class="rounded-lg bg-surface-container-lowest p-2.5 flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm font-bold">Baking Hours</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium">9:00 AM – 9:00 PM</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Open All 7 Days</span>
+</div>
+<div class="rounded-lg bg-surface-container-lowest p-2.5 flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">moped</span>
+<span class="font-label-sm text-label-sm font-bold">Dispatch Services</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium">Pick-up &amp; Delivery</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">All Panipat &amp; Campuses</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Handcrafted in small batches daily</span>
+</div>
+<a class="font-label-sm text-label-sm text-secondary font-bold inline-flex items-center gap-0.5" href="https://maps.google.com/?q=Model+Town+Panipat" rel="noopener noreferrer" target="_blank">
+<span>Get Directions</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Ordering FAQs & Trust Safeguards -->
+<section class="px-margin-mobile pt-space-sm pb-space-lg">
+<div class="flex items-center justify-between mb-3">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-secondary font-bold tracking-wider">Good to Know</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Ordering FAQs</h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-[22px]">help_outline</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- FAQ 1: Notice Period -->
+<div class="rounded-xl bg-surface-container-low p-3.5 flex flex-col gap-1.5">
+<div class="flex items-center gap-2 text-primary">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+</div>
+<span class="font-title-md text-title-md font-semibold">How much notice is required for custom cakes?</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-8">
+          We recommend a <strong>24 to 48-hour prior notice</strong> for bespoke tiered designs, fondant figurines, and custom flavours. However, classic brownies, tea cakes, and cupcakes can often be readied same-day if placed before 1:00 PM!
+        </p>
+</div>
+<!-- FAQ 2: Payment Methods -->
+<div class="rounded-xl bg-surface-container-low p-3.5 flex flex-col gap-1.5">
+<div class="flex items-center gap-2 text-primary">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">account_balance_wallet</span>
+</div>
+<span class="font-title-md text-title-md font-semibold">What payment methods do you accept?</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-8">
+          We accept instant <strong>UPI transfers (GPay, PhonePe, Paytm, QR code)</strong>, Net Banking, and <strong>Cash on Pick-up</strong> at our Model Town counter. A 50% deposit confirms customized festival hampers &amp; milestone cakes.
+        </p>
+</div>
+<!-- FAQ 3: Eggless & Hygiene Guarantee -->
+<div class="rounded-xl bg-surface-container-low p-3.5 flex flex-col gap-1.5">
+<div class="flex items-center gap-2 text-primary">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</div>
+<span class="font-title-md text-title-md font-semibold">Are the bakes 100% vegetarian / eggless?</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-8">
+          Yes! <strong>100% pure vegetarian (eggless) options</strong> are crafted in dedicated sanitised zones with zero cross-contamination. We use pure dairy butter, premium cocoa, and unadulterated flours without artificial stabilizers.
+        </p>
+</div>
+</div>
+</section>
+<!-- Warm Community Sign-off Footer Card -->
+<section class="px-margin-mobile pb-6">
+<div class="rounded-xl bg-surface-container-high p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">cake</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-primary">D Bakers Panipat</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Follow us on IG @dbakers_panipat</span>
+</div>
+</div>
+<a class="w-9 h-9 rounded-full bg-surface text-secondary flex items-center justify-center shadow-sm" href="https://instagram.com/dbakers_panipat" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</a>
+</div>
+</section>
+</div>
+<script>
+  function showSignupToast() {
+    var phoneInput = document.getElementById('student-phone');
+    if (!phoneInput || !phoneInput.checkValidity()) return;
+    
+    var toast = document.getElementById('signup-success-toast');
+    if (toast) {
+      toast.classList.remove('hidden');
+      phoneInput.value = '';
+      setTimeout(function() {
+        toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  }
+</script></main><div class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(61,35,20,0.08)] flex flex-col"><div class="px-margin-mobile pt-2 pb-1.5"><a class="w-full h-11 px-4 rounded-full bg-primary text-surface font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(37,15,3,0.22)] active:scale-[0.99] transition-transform" href="https://wa.me/919999999999?text=Hello%20D%20Bakers!%20I%20want%20to%20order%20fresh%20bakes%20from%20Model%20Town"><span class="material-symbols-outlined text-[18px] text-secondary-fixed-dim">shopping_bag</span><span>Order on WhatsApp • +91</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div><nav class="w-full flex items-center justify-between px-2 h-16" data-active-classes="text-secondary font-bold scale-105"><a class="flex-1 min-w-[54px] h-full flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[20px]">cake</span><span class="font-label-sm text-label-sm">Home</span></a><a class="flex-1 min-w-[54px] h-full flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="products" href="#"><span class="material-symbols-outlined text-[20px]">bakery_dining</span><span class="font-label-sm text-label-sm">Bakes</span></a><a class="flex-1 min-w-[54px] h-full flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="custom-cakes" href="#"><span class="material-symbols-outlined text-[20px]">celebration</span><span class="font-label-sm text-label-sm truncate max-w-[54px]">Custom</span></a><a class="flex-1 min-w-[54px] h-full flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="date-club" href="#"><span class="material-symbols-outlined text-[20px]">favorite</span><span class="font-label-sm text-label-sm truncate max-w-[54px]">Club</span></a><a aria-current="page" class="flex-1 min-w-[54px] h-full flex flex-col items-center justify-center gap-0.5 transition-colors text-secondary font-bold scale-105" data-path="university-stalls" href="#"><span class="material-symbols-outlined text-[20px]">storefront</span><span class="font-label-sm text-label-sm truncate max-w-[54px]">Stalls</span></a><a class="flex-1 min-w-[54px] h-full flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#"><span class="material-symbols-outlined text-[20px]">call</span><span class="font-label-sm text-label-sm">Contact</span></a></nav></div></body></html>

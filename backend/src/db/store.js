@@ -1,0 +1,321 @@
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const DB_FILE = path.resolve(__dirname, '../../data/db.json');
+
+// Initial seed data adhering to Warm Artisanal Patisserie specs
+const INITIAL_DATA = {
+  bakeryInfo: {
+    name: "D Bakers",
+    tagline: "Artisanal Home Bakery",
+    location: "Model Town, Panipat - 132103",
+    shortLocation: "Model Town, Panipat",
+    phone: "+91 99999 99999",
+    whatsappNumber: "919999999999",
+    instagram: "@dbakers_panipat",
+    hours: "9:00 AM – 9:00 PM (All 7 Days)",
+    ovenStatus: "Oven on: Morning batches fresh now",
+    acceptingSlotsToday: true,
+    egglessCertified: true,
+    deliveryPromise: "Refrigerated temperature-stable delivery across Panipat. Free above ₹999."
+  },
+  categories: [
+    { id: 'all', name: 'All Bakes', icon: null },
+    { id: 'cakes', name: 'Cakes', icon: 'cake' },
+    { id: 'cupcakes', name: 'Cupcakes', icon: 'bakery_dining' },
+    { id: 'brownies', name: 'Brownies', icon: 'cookie' },
+    { id: 'cookies', name: 'Cookies', icon: 'sentiment_satisfied' },
+    { id: 'tarts', name: 'Tarts', icon: 'cloud_download' },
+  ],
+  products: [
+    {
+      id: 'prod-1',
+      name: 'Belgian Dark Brownies',
+      category: 'brownies',
+      price: 320,
+      priceNote: 'Box of 4/6',
+      description: 'Ultra-fudgy Callebaut dark chocolate with Maldon sea salt finish. Crackled wafer-thin crust.',
+      badge: 'Best Seller',
+      isEggless: true,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDqPjOJZTEMNbf1z9R_O7Svhvw2csEELrV7wjm-wBhUKBTJJFO-hwyueb2MTvQ4R5lMldN9Df52kGLOOkxi_AGsZ_LYNw9z215yb9pvsTG1viohJS75A-5TdPIczJ4fZzAHMwjQukPTB-b8TmJFxuG3pcmDio8LSwnFJ9LyLm4c1SafMX5WSAQ6aFohH7wpAMVU3d3jmbQlwvsRzQqUVXl0vv8a3RxVIK1GAQia1IEA',
+      tags: ['Belgian 55%', 'Sea Salt', 'Fudge'],
+      available: true
+    },
+    {
+      id: 'prod-2',
+      name: 'Pastel Swirl Cupcakes',
+      category: 'cupcakes',
+      price: 390,
+      priceNote: 'Box of 6',
+      description: 'Vanilla bean sponge crowned with silky whipped French buttercream and edible gold shimmer.',
+      badge: 'Studio Pick',
+      isEggless: true,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCLlxSoI4CqF-H-tDf9z0oYRXztAoi4jJcs4APB_dph-G6FgR7okUkOsMWiI5hsxLjkAcax-iAqdaTlKpAdJeHPCQ8gLRlmP6hXNdHIgwBwTwZYMkcjg9gMnOAZOqevDsiUv1_3iOcl1xlY2gKoFnJZIOP1DxERMuBxJBe6TiZf6YF7FkG1U4qvQ5Vzerw3fhjKbpUB5AD_UIejpwqyAUiBeEDFbBkGrUu-kOf2bRvq',
+      tags: ['Vanilla Bean', 'Buttercream', 'Pastel'],
+      available: true
+    },
+    {
+      id: 'prod-3',
+      name: 'Hazelnut Chocochip Cookies',
+      category: 'cookies',
+      price: 280,
+      priceNote: 'Box of 4',
+      description: 'Thick, NYC-style chewy brown butter cookies with molten dark chocolate and roasted hazelnut core.',
+      badge: 'Warm Center',
+      isEggless: true,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuANd_pUFdwHxCazJwZzE8GuNWkFahR3B_MsjU0dHSdr3FmG9xY3QFGH7R_xmiMoGOOjtGd556jfHxhoYW5b0YDGDapdDLWF1z94V0YIDsqkSZS-k4-flEZHgdwnRp0FuMUfuUh6NpkvuwGsCpRqNdCtCBY_4kaU9c2ldvP9s-aw7FUxiObHwXx4OupHM5ygY49Nxn91h76lQT5hCabpKEOLJ7DEek9EEcM5pTbRj7B1',
+      tags: ['Brown Butter', 'NYC Style', 'Hazelnut'],
+      available: true
+    },
+    {
+      id: 'prod-4',
+      name: 'Berry Custard Tarts',
+      category: 'tarts',
+      price: 240,
+      priceNote: 'Box of 2',
+      description: 'Crisp French butter sablé shells loaded with diplomat Madagascar vanilla cream and fresh glazed berries.',
+      badge: 'Seasonal',
+      isEggless: true,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuART2V14Alv53fYocBccuDsGOvtyFR6sYxDwDlysH015luGcuneEbCuWwnLpUEQ-vgP0OOxG_sQRVDmMgwKBe-fp7yKJqXg028faTLmjzMh3bmMBLd2ufGdMm4mF_fbEnLW-ViFSXcmXK1y9Exc5MQS-TSKx7vfNQKECSaZzuWkwvD1-l9e1njqrKZGzPYQV2raDLizq82R3snOoal89992sjq7gi_xz2ASdX-G7ctV',
+      tags: ['French Sablé', 'Diplomat Cream', 'Berries'],
+      available: true
+    },
+    {
+      id: 'prod-5',
+      name: 'Vintage Heart Buttercream Cake',
+      category: 'cakes',
+      price: 750,
+      priceNote: '500g',
+      description: 'Classic Victorian Lambeth ruffles with delicate piping. Choice of strawberry & cream or chocolate truffle.',
+      badge: 'Trending',
+      isEggless: true,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAjAgCdBiM7xMrS9gaDq40OJTYka-XkFHggHAJUAV2BLr8kwRWy4-5cHuUcuMIORfjlhjkU0T-CIVGMsL11jJ6QBPx6tNBUApbeT1ehMj6fj2I5ujXnPGzftYqitUHgc2heBGXSguWBlWC0KPzkBp60m9-0Tj-P0XgsVe5-AzVYlFhdvB5UKA7GbGbgYV2W4EczNDveC9WUBtnWb_aUqAzUgiW_l94DfdYD0WLGN6R2',
+      tags: ['Lambeth Piping', 'Celebration', 'Korean Vintage'],
+      available: true
+    },
+    {
+      id: 'prod-6',
+      name: 'Lotus Biscoff Cheesecake Slice',
+      category: 'cakes',
+      price: 220,
+      priceNote: 'Per Slice',
+      description: 'Slow-baked creamy Philadelphia cheesecake loaded with speculoos biscuit crumble and warm cookie butter glaze.',
+      badge: 'Pure Decadence',
+      isEggless: true,
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCM12ngZf7tercf92oJnoQ_5mMMV8zYAub9TTKMjElnGSUnwiXcdlUHjakyzXf2yKcIZGubntMi6d7QU7qWoaD2mng-4osxRVIwFFuIW3siNnRTgKV9f2CWzilkeiSWoxhkM7G2_4RYT4XhjquISZWwPMOHTKYHsQWnnjmn6-g8cCelbL-EpjOsgrKN8C3Kj7B3vDdAvv47_X_PbC7P4CfhWleFYYBfn4r9XH9I3sMT',
+      tags: ['Philadelphia Cream Cheese', 'Lotus Biscoff', 'Baked'],
+      available: true
+    }
+  ],
+  sampler: {
+    name: "The Signature Grand Sampler",
+    price: 999,
+    tagline: "Weekend Hamper • Artisan Highlight",
+    description: "Flaky sea-salt brownies, pastel cream swirl cupcakes, soft-centered cookies, and glossy fresh berry custard tarts nestled in our signature Kraft box.",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCBeZFvwMpDdYJ8Y0lLY4Ckc9GXcfCfTWtfo9vOOt34UWZCvFu6KY74Nm_oJpEyo0QlEx_5c91XNaIs2Klpx8uBFb-SlgXJ495mOafWhDk044al6u8aPlVJmU9HPRoMow2ZdmlSUF8LYs1QU7OAQ0dT6I4GRPlr4-TWZ5fgvvDPp2fqlZyNHfL3aY8mOLOFbtk-mrjZfCxgCkWxjRZdPEXYgAnsD2oiiyeOG1k9ui04",
+    items: [
+      "4 Fudgy Belgian Dark Brownies with Maldon Salt",
+      "4 Hand-piped French Buttercream Cupcakes",
+      "2 Molten Center Chocochip Cookies",
+      "4 Fresh Fruit & Vanilla Custard Shortbread Tarts"
+    ]
+  },
+  reviews: [
+    {
+      id: 1,
+      name: "Pooja Batra",
+      locality: "Model Town, Panipat",
+      avatar: "P",
+      avatarColor: "bg-secondary-fixed text-on-secondary-fixed",
+      rating: 5,
+      text: "Ordered our daughter's 1st birthday cake from D Bakers. Not only was the floral finish stunning, the Belgian chocolate sponge was so light, eggless, and moist. The entire party was raving!"
+    },
+    {
+      id: 2,
+      name: "Ankush Narang",
+      locality: "Ansals Sushant City",
+      avatar: "A",
+      avatarColor: "bg-tertiary-fixed text-on-tertiary-fixed",
+      rating: 5,
+      text: "Their sea salt fudge brownies are unmatched in Haryana! You can immediately smell the genuine French butter and pure cocoa. D Bakers is now our permanent family bakery."
+    },
+    {
+      id: 3,
+      name: "Simran Grover",
+      locality: "Sector 11, Panipat",
+      avatar: "S",
+      avatarColor: "bg-primary-fixed text-on-primary-fixed",
+      rating: 5,
+      text: "The Date Club is such a lifesaver! They remembered my husband's anniversary before I even panicked, and the bespoke Bento cake delivered right on time with complimentary cupcakes!"
+    }
+  ],
+  campusEvents: [
+    {
+      id: 'piet-fest',
+      title: 'Tech & Cultural Fest',
+      campus: 'PIET (Panipat Institute of Engineering & Technology)',
+      timing: 'This Friday & Saturday | 10:00 AM – 6:00 PM',
+      status: 'Live / Upcoming',
+      highlights: 'Brownie Stacks, Dessert Jars, Cupcake Decorating Counter'
+    },
+    {
+      id: 'geeta-fest',
+      title: 'Youth Food Carnival',
+      campus: 'Geeta University, Naultha Campus',
+      timing: 'Next Wednesday | 11:00 AM – 5:00 PM',
+      status: 'Confirmed',
+      highlights: 'Lotus Biscoff Slices, NYC Cookies, Festive Hampers'
+    },
+    {
+      id: 'ashoka-popup',
+      title: 'Weekend Artisanal Market',
+      campus: 'Ashoka University, Sonipat',
+      timing: 'Upcoming Month • Date TBA',
+      status: 'Scheduled',
+      highlights: 'French Sablé Fruit Tarts & Belgian Truffles'
+    }
+  ],
+  quotes: [
+    {
+      id: 'quote-1',
+      customerName: 'Ananya Verma',
+      phone: '9812345678',
+      item: 'Custom Celebration Cake',
+      weight: '1.0 kg',
+      style: 'Vintage Lambeth Ruffles',
+      flavor: 'Belgian Truffle 55%',
+      isEggless: true,
+      occasion: 'Birthday',
+      date: '2026-10-15',
+      pipingMessage: 'Happy 21st Birthday Anya',
+      estimatedPrice: 1350,
+      status: 'confirmed',
+      createdAt: new Date().toISOString()
+    }
+  ],
+  dateClub: [
+    {
+      id: 'club-1',
+      name: 'Radhika Sharma',
+      phone: '9876543210',
+      celebrationType: 'Wedding Anniversary',
+      recipientName: 'Himanshu & Radhika',
+      date: '2026-10-24',
+      favFlavor: 'Belgian Chocolate Truffle',
+      registeredAt: new Date().toISOString()
+    }
+  ],
+  campusAlerts: [
+    {
+      id: 'alert-1',
+      campus: 'PIET, Panipat',
+      phone: '9811122233',
+      subscribedAt: new Date().toISOString()
+    }
+  ],
+  orders: [
+    {
+      id: 'ord-101',
+      customerName: 'Rohit Juneja',
+      phone: '9822233344',
+      items: [{ name: 'Belgian Dark Brownies', quantity: 1, price: 320 }],
+      totalAmount: 320,
+      deliveryType: 'Doorstep Delivery',
+      address: 'Model Town, Panipat',
+      status: 'baking',
+      createdAt: new Date().toISOString()
+    }
+  ],
+  contactMessages: []
+};
+
+// Store class managing in-memory cache and atomic file persistence
+class Store {
+  constructor() {
+    this.data = null;
+    this.init();
+  }
+
+  init() {
+    try {
+      const dataDir = path.dirname(DB_FILE);
+      if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true });
+      }
+
+      if (!fs.existsSync(DB_FILE)) {
+        fs.writeFileSync(DB_FILE, JSON.stringify(INITIAL_DATA, null, 2), 'utf-8');
+        this.data = JSON.parse(JSON.stringify(INITIAL_DATA));
+      } else {
+        const fileContent = fs.readFileSync(DB_FILE, 'utf-8');
+        this.data = JSON.parse(fileContent);
+      }
+    } catch (err) {
+      console.error('Failed to initialize database file. Falling back to in-memory initial data:', err);
+      this.data = JSON.parse(JSON.stringify(INITIAL_DATA));
+    }
+  }
+
+  save() {
+    try {
+      fs.writeFileSync(DB_FILE, JSON.stringify(this.data, null, 2), 'utf-8');
+    } catch (err) {
+      console.error('Error saving database to file:', err);
+    }
+  }
+
+  get(collectionName) {
+    return this.data[collectionName];
+  }
+
+  set(collectionName, value) {
+    this.data[collectionName] = value;
+    this.save();
+    return this.data[collectionName];
+  }
+
+  insert(collectionName, item) {
+    if (!Array.isArray(this.data[collectionName])) {
+      this.data[collectionName] = [];
+    }
+    const newItem = {
+      id: item.id || `${collectionName.slice(0, 3)}-${Date.now()}`,
+      ...item,
+      createdAt: item.createdAt || new Date().toISOString()
+    };
+    this.data[collectionName].unshift(newItem);
+    this.save();
+    return newItem;
+  }
+
+  findById(collectionName, id) {
+    const list = this.data[collectionName];
+    if (!Array.isArray(list)) return null;
+    return list.find(item => item.id === id) || null;
+  }
+
+  update(collectionName, id, updates) {
+    const list = this.data[collectionName];
+    if (!Array.isArray(list)) return null;
+    const index = list.findIndex(item => item.id === id);
+    if (index === -1) return null;
+    list[index] = { ...list[index], ...updates, updatedAt: new Date().toISOString() };
+    this.save();
+    return list[index];
+  }
+
+  delete(collectionName, id) {
+    const list = this.data[collectionName];
+    if (!Array.isArray(list)) return false;
+    const initialLen = list.length;
+    this.data[collectionName] = list.filter(item => item.id !== id);
+    const deleted = this.data[collectionName].length < initialLen;
+    if (deleted) this.save();
+    return deleted;
+  }
+}
+
+export const db = new Store();
