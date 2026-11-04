@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BAKERY_INFO } from '../data/bakeryData';
+import { api } from '../services/api';
 
 export default function ContactPage() {
   const [inquiry, setInquiry] = useState({
@@ -14,6 +15,9 @@ export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+
+    // Persist inquiry to backend database
+    api.submitContact(inquiry);
 
     const text = encodeURIComponent(
       `Hello D Bakers!\n\n` +

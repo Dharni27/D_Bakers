@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BAKERY_INFO } from '../data/bakeryData';
+import { api } from '../services/api';
 
 export default function CustomCakesPage({ onOpenQuickOrder }) {
   const [selectedSize, setSelectedSize] = useState('1kg');
@@ -38,6 +39,19 @@ export default function CustomCakesPage({ onOpenQuickOrder }) {
 
   const handleOrderWhatsApp = () => {
     const egglessText = isEggless ? '100% Eggless' : 'Regular';
+
+    // Record quote inquiry in backend database
+    api.createQuote({
+      item: 'Custom Celebration Cake',
+      weight: currentSizeObj.weight,
+      flavor: selectedFlavor,
+      style: selectedStyle,
+      isEggless,
+      date: eventDate,
+      pipingMessage,
+      estimatedPrice
+    });
+
     const text = encodeURIComponent(
       `Hello D Bakers!\n\n` +
       `I want to customize a Bespoke Celebration Cake from Model Town Studio:\n\n` +

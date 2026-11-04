@@ -12,3 +12,4 @@ router.post('/', registerDateClub);
 router.get('/upcoming', getUpcomingCelebrations);
 
 export default router;
+

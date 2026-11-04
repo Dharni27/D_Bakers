@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BAKERY_INFO } from '../data/bakeryData';
+import { api } from '../services/api';
 
 export default function DateClubPage() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,9 @@ export default function DateClubPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+
+    // Save date club entry to backend
+    api.registerDateClub(formData);
 
     // Prepare WhatsApp verification link
     const text = encodeURIComponent(

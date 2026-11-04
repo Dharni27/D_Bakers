@@ -12,3 +12,4 @@ router.post('/subscribe', subscribeAlert);
 router.get('/subscribers', getAlertSubscribers);
 
 export default router;
+

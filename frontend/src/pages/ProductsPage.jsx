@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BAKERY_INFO, CATEGORIES, PRODUCTS, SIGNATURE_SAMPLER } from '../data/bakeryData';
+import { api } from '../services/api';
 
 export default function ProductsPage({ setActiveTab, onOpenQuickOrder }) {
   const [activeCategory, setActiveCategory] = useState('all');
   const [showSamplerDetails, setShowSamplerDetails] = useState(false);
+  const [productList, setProductList] = useState(PRODUCTS);
+
+  // Synchronize product catalog from backend API with offline fallback
+  useEffect(() => {
+    let isMounted = true;
+    api.getProducts().then(res => {
+      if (isMounted && res?.data && res.data.length > 0) {
+        setProductList(res.data);
+      }
+    }).catch(() => {});
+    return () => { isMounted = false; };
+  }, []);
 
   // Filter products based on selected tab
   const filteredProducts = activeCategory === 'all'
-    ? PRODUCTS
-    : PRODUCTS.filter((item) => item.category === activeCategory);
+    ? productList
+    : productList.filter((item) => item.category === activeCategory);
 
   return (
     <div className="flex flex-col w-full max-w-2xl mx-auto">

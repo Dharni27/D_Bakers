@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BAKERY_INFO, CAMPUS_SCHEDULE, FAQS } from '../data/bakeryData';
+import { api } from '../services/api';
 
 export default function UniversityStallsPage() {
   const [selectedCampus, setSelectedCampus] = useState('PIET, Panipat');
@@ -11,6 +12,12 @@ export default function UniversityStallsPage() {
     e.preventDefault();
     if (!studentPhone) return;
     setIsAlertRegistered(true);
+
+    // Persist campus alert subscriber
+    api.subscribeAlert({
+      campus: selectedCampus,
+      phone: studentPhone
+    });
 
     const text = encodeURIComponent(
       `Hi D Bakers! I would like to get notified before you set up your campus stall at ${selectedCampus}. My WhatsApp number is +91 ${studentPhone}.`

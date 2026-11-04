@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BAKERY_INFO, PRODUCTS } from '../data/bakeryData';
+import { api } from '../services/api';
 
 export default function QuickOrderModal({ isOpen, onClose, initialItem = null }) {
   const [selectedProduct, setSelectedProduct] = useState(initialItem?.name || 'Custom Celebration Cake');
@@ -14,6 +15,21 @@ export default function QuickOrderModal({ isOpen, onClose, initialItem = null })
   const handleSendWhatsApp = (e) => {
     e.preventDefault();
     const egglessText = isEggless ? '100% Eggless' : 'Regular';
+
+    // Persist order asynchronously to backend
+    api.createOrder({
+      customerName: 'Online Patron',
+      deliveryType: 'Direct WhatsApp Order',
+      items: [{
+        name: selectedProduct,
+        weight,
+        isEggless,
+        occasion,
+        deliveryDate
+      }],
+      notes: message
+    });
+
     const text = encodeURIComponent(
       `Hello D Bakers!\n\n` +
       `I want to place an order inquiry:\n` +
